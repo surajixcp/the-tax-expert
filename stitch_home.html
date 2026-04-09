@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The TAX expert | Premium Tax &amp; Business Solutions</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-variant": "#e0e3e5",
+                      "primary-fixed": "#d6e3ff",
+                      "surface-container-low": "#f2f4f6",
+                      "on-secondary-fixed-variant": "#92001c",
+                      "inverse-on-surface": "#eff1f3",
+                      "error": "#ba1a1a",
+                      "tertiary": "#0d0400",
+                      "tertiary-fixed": "#ffdcc1",
+                      "outline": "#75777e",
+                      "on-tertiary-fixed": "#2e1500",
+                      "on-primary": "#ffffff",
+                      "on-background": "#191c1e",
+                      "on-tertiary-container": "#a87e59",
+                      "outline-variant": "#c4c6ce",
+                      "on-secondary-container": "#fffbff",
+                      "tertiary-fixed-dim": "#eebd94",
+                      "primary": "#000615",
+                      "secondary-container": "#db313f",
+                      "secondary-fixed-dim": "#ffb3b1",
+                      "on-tertiary-fixed-variant": "#613f20",
+                      "on-error-container": "#93000a",
+                      "background": "#f7f9fb",
+                      "on-secondary-fixed": "#410007",
+                      "surface-bright": "#f7f9fb",
+                      "secondary": "#b7102a",
+                      "on-primary-container": "#7587a7",
+                      "surface-container-lowest": "#ffffff",
+                      "on-surface": "#191c1e",
+                      "tertiary-container": "#321800",
+                      "on-tertiary": "#ffffff",
+                      "primary-container": "#0b1f3a",
+                      "secondary-fixed": "#ffdad8",
+                      "surface-container-high": "#e6e8ea",
+                      "on-primary-fixed-variant": "#364764",
+                      "on-surface-variant": "#44474d",
+                      "surface": "#f7f9fb",
+                      "surface-container": "#eceef0",
+                      "on-primary-fixed": "#071c36",
+                      "surface-container-highest": "#e0e3e5",
+                      "on-secondary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "surface-tint": "#4d5f7d",
+                      "primary-fixed-dim": "#b5c7ea",
+                      "inverse-primary": "#b5c7ea",
+                      "inverse-surface": "#2d3133",
+                      "error-container": "#ffdad6",
+                      "surface-dim": "#d8dadc"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Manrope"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f7f9fb; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at top right, #0b1f3a, #000615);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="text-on-background selection:bg-secondary selection:text-white">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-xl dark:bg-slate-950/90 shadow-[0px_24px_48px_rgba(7,28,54,0.08)]">
+<div class="flex justify-between items-center px-8 py-5 max-w-full mx-auto">
+<div class="text-2xl font-black tracking-tighter text-white uppercase font-['Manrope']">
+                The TAX expert
+            </div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-red-600 border-b-2 border-red-600 pb-1 font-['Manrope'] font-bold tracking-tight" href="#home">Home</a>
+<a class="text-slate-300 hover:text-white transition-colors font-['Manrope'] font-bold tracking-tight" href="#services">Services</a>
+<a class="text-slate-300 hover:text-white transition-colors font-['Manrope'] font-bold tracking-tight" href="#about">About</a>
+<a class="text-slate-300 hover:text-white transition-colors font-['Manrope'] font-bold tracking-tight transition-all duration-300" href="#contact">Contact</a>
+</div>
+<button class="bg-secondary text-white px-6 py-2.5 rounded-full font-bold transition-transform scale-95 active:scale-90 hover:bg-secondary-container">
+                Consultation
+            </button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="hero-gradient pt-40 pb-32 px-8 overflow-hidden relative" id="home">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+<div class="flex-1 text-left z-10">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-white/5 border border-white/10 rounded-full mb-6">
+<span class="w-2 h-2 bg-secondary rounded-full animate-pulse"></span>
+<span class="text-white/80 text-xs font-bold tracking-widest uppercase">Trusted Financial Advisory</span>
+</div>
+<h1 class="text-5xl md:text-7xl font-extrabold text-white leading-[1.1] mb-6 tracking-tight">
+                    Expert Tax &amp; <br/><span class="text-secondary">Business Solutions</span> You Can Trust
+                </h1>
+<p class="text-slate-300 text-lg md:text-xl max-w-xl mb-10 leading-relaxed font-body">
+                    Unlock seamless growth with affordable, high-precision compliance and registration services designed for the modern entrepreneur.
+                </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-secondary text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-secondary-container transition-all shadow-[0_10px_30px_rgba(183,16,42,0.3)]">
+                        Get Consultation
+                    </button>
+<button class="bg-white/10 text-white border border-white/20 backdrop-blur-md px-8 py-4 rounded-full font-bold text-lg hover:bg-white/20 transition-all">
+                        Contact Now
+                    </button>
+</div>
+<!-- Trust Badges -->
+<div class="mt-16 flex items-center gap-12">
+<div>
+<div class="text-3xl font-black text-white">100+</div>
+<div class="text-sm text-slate-400 uppercase tracking-widest font-bold">Clients</div>
+</div>
+<div class="w-px h-10 bg-white/10"></div>
+<div>
+<div class="text-3xl font-black text-white">5+</div>
+<div class="text-sm text-slate-400 uppercase tracking-widest font-bold">Years Experience</div>
+</div>
+</div>
+</div>
+<div class="flex-1 relative">
+<div class="absolute -inset-10 bg-secondary/20 blur-[100px] rounded-full"></div>
+<div class="relative rounded-3xl overflow-hidden glass-card p-4">
+<img alt="Professional Consultant" class="rounded-2xl shadow-2xl grayscale-[20%] contrast-125" data-alt="Confident female finance professional in a modern office with sleek navy suit looking at camera with a welcoming smile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD96r8LtIP0kzIrf1wrMSSKR5w1GqH63UkPAs1CzPOlCxVmusaw93tWAWTtHjqjj3twAPIFoHCX5BBpMc0Uw9dBNuTD_kaqQTCWbV9bqpEsstfDFZAWN1qBFvLWjH85rXQmrhomASzeyituVIF5UELrQVVhZfBWd32Eaido64WffNc3kEmUHQc_q3BxItIc5gaY6cqgVCq_AlgFzAsRlPIkm1niLRaM9-2ZEODop3kpxJ94y5tFj8Py0pe2qGULcMn0hObcu3CybWAl"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-32 px-8 bg-surface" id="services">
+<div class="max-w-7xl mx-auto">
+<div class="mb-20 text-center">
+<h2 class="text-4xl md:text-5xl font-black text-primary mb-4 tracking-tighter">Strategic Tax Services</h2>
+<div class="w-20 h-1.5 bg-secondary mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- GST Registration -->
+<div class="group bg-surface-container-lowest p-10 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100/50 hover:-translate-y-2">
+<div class="w-16 h-16 bg-primary-container text-white rounded-2xl flex items-center justify-center mb-8 group-hover:bg-secondary transition-colors">
+<span class="material-symbols-outlined text-3xl" data-icon="account_balance">account_balance</span>
+</div>
+<h3 class="text-2xl font-bold text-primary mb-4">GST Registration</h3>
+<p class="text-on-surface-variant mb-6 leading-relaxed">End-to-end support for Proprietorship, LLP, Pvt Ltd, OPC, and Partnership firms.</p>
+<ul class="space-y-3">
+<li class="flex items-center gap-2 text-sm font-semibold text-slate-600">
+<span class="material-symbols-outlined text-secondary text-lg" data-icon="check_circle">check_circle</span> Fast Filing
+                        </li>
+<li class="flex items-center gap-2 text-sm font-semibold text-slate-600">
+<span class="material-symbols-outlined text-secondary text-lg" data-icon="check_circle">check_circle</span> Legal Compliance
+                        </li>
+</ul>
+</div>
+<!-- Company Registration -->
+<div class="group bg-surface-container-lowest p-10 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100/50 hover:-translate-y-2">
+<div class="w-16 h-16 bg-primary-container text-white rounded-2xl flex items-center justify-center mb-8 group-hover:bg-secondary transition-colors">
+<span class="material-symbols-outlined text-3xl" data-icon="corporate_fare">corporate_fare</span>
+</div>
+<h3 class="text-2xl font-bold text-primary mb-4">Company Registration</h3>
+<p class="text-on-surface-variant mb-6 leading-relaxed">Incorporate your dream with Pvt Ltd, OPC, or LLP registration handled by experts.</p>
+<ul class="space-y-3">
+<li class="flex items-center gap-2 text-sm font-semibold text-slate-600">
+<span class="material-symbols-outlined text-secondary text-lg" data-icon="check_circle">check_circle</span> Document Drafting
+                        </li>
+<li class="flex items-center gap-2 text-sm font-semibold text-slate-600">
+<span class="material-symbols-outlined text-secondary text-lg" data-icon="check_circle">check_circle</span> PAN &amp; TAN Inclusion
+                        </li>
+</ul>
+</div>
+<!-- Certificates & Licenses -->
+<div class="group bg-surface-container-lowest p-10 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100/50 hover:-translate-y-2">
+<div class="w-16 h-16 bg-primary-container text-white rounded-2xl flex items-center justify-center mb-8 group-hover:bg-secondary transition-colors">
+<span class="material-symbols-outlined text-3xl" data-icon="verified">verified</span>
+</div>
+<h3 class="text-2xl font-bold text-primary mb-4">Licenses &amp; Certs</h3>
+<p class="text-on-surface-variant mb-6 leading-relaxed">Udyam, FSSAI, IEC, Trademark, Hallmark, Shop Act, and more to power your brand.</p>
+<ul class="space-y-3">
+<li class="flex items-center gap-2 text-sm font-semibold text-slate-600">
+<span class="material-symbols-outlined text-secondary text-lg" data-icon="check_circle">check_circle</span> Brand Protection
+                        </li>
+<li class="flex items-center gap-2 text-sm font-semibold text-slate-600">
+<span class="material-symbols-outlined text-secondary text-lg" data-icon="check_circle">check_circle</span> Operational Ready
+                        </li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="py-32 px-8 bg-surface-container-low" id="about">
+<div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-20">
+<div class="lg:w-1/2">
+<div class="relative">
+<div class="absolute -top-10 -left-10 w-40 h-40 bg-secondary/10 rounded-full blur-3xl"></div>
+<div class="bg-white p-8 rounded-[40px] shadow-2xl relative z-10 border border-slate-100">
+<div class="flex items-center gap-6 mb-8">
+<div class="w-24 h-24 rounded-full overflow-hidden border-4 border-secondary/20">
+<img alt="Mohd. Rahamtulla" class="w-full h-full object-cover" data-alt="Professional portrait of a male consultant in a suit, confident and professional against a neutral studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLA_hOATUlNdD3Pv7ffhHvtEhFYx-7MIqyDOojdFCdUUdJhva9Z6ENbheJW1xAMmqxYg8IAj6E913SLuZDMGdUTm35ACGLl4AuxHybXBMF89R1PsJqC-FXjaw3Q8TdnTVWCGSxTqg926EjD0VOhhu4S-cOPAiOkk2uEUuuiwG503v_Zs4pLQ6tyECzdU281N04iQMUFPqiKJjtJXiNBL-KToIz2yr6f_JxP33Nmdo4-3j5kRLQjBc6IKY2xIwk0OLrPzY5dOOvKyhg"/>
+</div>
+<div>
+<h3 class="text-2xl font-bold text-primary">Mohd. Rahamtulla <span class="text-sm font-medium text-slate-500 block">(B.Com)</span></h3>
+<p class="text-secondary font-bold">Principal Consultant</p>
+</div>
+</div>
+<p class="text-on-surface-variant leading-relaxed text-lg mb-8">
+                            Specializing in end-to-end compliance and strategic financial advisory. We bridge the gap between complex legal mandates and your business success, ensuring you stay focused on growth while we handle the regulatory heavy lifting.
+                        </p>
+<div class="space-y-4 pt-6 border-t border-slate-100">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary" data-icon="call">call</span>
+<span class="font-bold text-primary">+91 8851667137</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary" data-icon="mail">mail</span>
+<span class="font-medium text-slate-600">abdullamansoori37@gmail.com</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary" data-icon="location_on">location_on</span>
+<span class="font-medium text-slate-600">New Delhi-44, India</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:w-1/2">
+<span class="text-secondary font-bold tracking-widest uppercase text-sm">Why Choose Us</span>
+<h2 class="text-4xl md:text-5xl font-black text-primary mt-4 mb-8 tracking-tighter">Your Success, Our Regulatory Mandate.</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+<div class="flex items-start gap-4">
+<div class="mt-1 bg-white p-2 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-secondary" data-icon="payments" data-weight="fill">payments</span>
+</div>
+<div>
+<h4 class="font-bold text-primary text-lg">Affordable Pricing</h4>
+<p class="text-slate-500 text-sm">Premium expertise without the premium price tag.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="mt-1 bg-white p-2 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-secondary" data-icon="bolt" data-weight="fill">bolt</span>
+</div>
+<div>
+<h4 class="font-bold text-primary text-lg">Fast Processing</h4>
+<p class="text-slate-500 text-sm">Rapid turnarounds for all your registrations.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="mt-1 bg-white p-2 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-secondary" data-icon="psychology" data-weight="fill">psychology</span>
+</div>
+<div>
+<h4 class="font-bold text-primary text-lg">Expert Guidance</h4>
+<p class="text-slate-500 text-sm">Tailored solutions by seasoned professionals.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="mt-1 bg-white p-2 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-secondary" data-icon="verified_user" data-weight="fill">verified_user</span>
+</div>
+<div>
+<h4 class="font-bold text-primary text-lg">100% Compliance</h4>
+<p class="text-slate-500 text-sm">Error-free filing and absolute legal security.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-32 px-8 bg-surface-container-highest" id="contact">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col lg:flex-row gap-16">
+<div class="lg:w-3/5">
+<div class="bg-white p-10 rounded-[40px] shadow-2xl">
+<h2 class="text-3xl font-black text-primary mb-8 tracking-tighter">Book Free Consultation</h2>
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-xs font-bold text-slate-500 uppercase tracking-widest px-1">Full Name</label>
+<input class="w-full bg-slate-50 border-none focus:ring-2 focus:ring-secondary/20 rounded-2xl py-4 px-6 text-primary transition-all" placeholder="e.g. John Doe" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold text-slate-500 uppercase tracking-widest px-1">Phone Number</label>
+<input class="w-full bg-slate-50 border-none focus:ring-2 focus:ring-secondary/20 rounded-2xl py-4 px-6 text-primary transition-all" placeholder="+91 00000 00000" type="tel"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold text-slate-500 uppercase tracking-widest px-1">Service Required</label>
+<select class="w-full bg-slate-50 border-none focus:ring-2 focus:ring-secondary/20 rounded-2xl py-4 px-6 text-primary transition-all">
+<option>GST Registration</option>
+<option>Company Incorporation</option>
+<option>Trademark Filing</option>
+<option>MSME/Udyam Registration</option>
+<option>Other Services</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold text-slate-500 uppercase tracking-widest px-1">Message</label>
+<textarea class="w-full bg-slate-50 border-none focus:ring-2 focus:ring-secondary/20 rounded-2xl py-4 px-6 text-primary transition-all" placeholder="How can we help you?" rows="4"></textarea>
+</div>
+<button class="w-full bg-primary text-white font-black py-5 rounded-2xl hover:bg-slate-900 transition-all text-lg shadow-xl uppercase tracking-widest">
+                                Submit Inquiry
+                            </button>
+</form>
+</div>
+</div>
+<div class="lg:w-2/5 flex flex-col gap-8">
+<div class="flex-1 bg-white p-1 rounded-[40px] shadow-2xl overflow-hidden min-h-[300px]">
+<div class="w-full h-full bg-slate-200 animate-pulse relative">
+<div class="absolute inset-0 flex items-center justify-center flex-col text-slate-400">
+<span class="material-symbols-outlined text-5xl mb-4" data-icon="map">map</span>
+<p class="font-bold">Map Interaction Placeholder</p>
+<p class="text-sm">Location: New Delhi-44</p>
+</div>
+<div class="w-full h-full grayscale opacity-40 mix-blend-multiply" data-location="New Delhi" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDnZCJ5ubrKziR_Qe8nHPSBnYwzJQ9nI2g7KJaG-yncz2RmDG8u5tP91B4ReyaSm13Xt2cQrJh5pFpo2LWKq8GlHDAW4MbjC34hpwy-14Z7SessVV8srLqgd75PeL49qCrVoJw5wTGxMCdxk_Xpe7dsGP4ksLe4ZQUcoM_Lesayme8Ii_LJFG5lJtH42bPAVqxC6MXVOc-qsUmsANF3GNJ5dyFIh2QpaOhqLmCbrLqmmKz9BPJbtW6EnOU3ME5Z0nmO49ah-gtah4iK'); background-size: cover;">
+</div>
+</div>
+</div>
+<div class="bg-secondary p-10 rounded-[40px] text-white">
+<h3 class="text-2xl font-black mb-4">Direct Support</h3>
+<p class="opacity-80 mb-6">Need immediate assistance? Our experts are available for a quick call.</p>
+<a class="flex items-center gap-4 bg-white/20 p-4 rounded-2xl hover:bg-white/30 transition-all" href="tel:+918851667137">
+<span class="material-symbols-outlined" data-icon="phone_in_talk" data-weight="fill">phone_in_talk</span>
+<span class="text-xl font-bold">+91 88516 67137</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-slate-950 dark:bg-black w-full pt-20 pb-10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 max-w-7xl mx-auto">
+<div class="col-span-1 md:col-span-1">
+<div class="text-xl font-bold text-white mb-6">The TAX expert</div>
+<p class="text-slate-400 text-sm leading-relaxed mb-8">
+                    Redefining professional tax consultancy with a focus on speed, affordability, and absolute compliance.
+                </p>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-secondary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-sm" data-icon="share">share</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-secondary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-sm" data-icon="hub">hub</span>
+</div>
+</div>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Services</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-400 hover:text-red-500 transition-colors text-sm hover:translate-x-1 inline-block" href="#">GST Registration</a></li>
+<li><a class="text-slate-400 hover:text-red-500 transition-colors text-sm hover:translate-x-1 inline-block" href="#">Company Incorporation</a></li>
+<li><a class="text-slate-400 hover:text-red-500 transition-colors text-sm hover:translate-x-1 inline-block" href="#">Trademark &amp; Patents</a></li>
+<li><a class="text-slate-400 hover:text-red-500 transition-colors text-sm hover:translate-x-1 inline-block" href="#">Compliance Audit</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Company</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-400 hover:text-red-500 transition-colors text-sm hover:translate-x-1 inline-block" href="#">About Us</a></li>
+<li><a class="text-slate-400 hover:text-red-500 transition-colors text-sm hover:translate-x-1 inline-block" href="#">Privacy Policy</a></li>
+<li><a class="text-slate-400 hover:text-red-500 transition-colors text-sm hover:translate-x-1 inline-block" href="#">Terms of Service</a></li>
+<li><a class="text-slate-400 hover:text-red-500 transition-colors text-sm hover:translate-x-1 inline-block" href="#">Contact Us</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Location</h4>
+<p class="text-slate-400 text-sm leading-relaxed mb-4">
+                    New Delhi-44, India
+                </p>
+<div class="mt-4 p-4 rounded-xl bg-white/5 border border-white/10">
+<p class="text-xs text-slate-500 uppercase font-bold tracking-widest mb-1">Office Hours</p>
+<p class="text-white text-sm">Mon - Sat: 9AM - 7PM</p>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-12 pt-16 border-t border-white/5 mt-16 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-slate-400 text-sm">© 2024 The Tax Expert. All rights reserved.</p>
+<div class="flex gap-8">
+<a class="text-slate-500 hover:text-white transition-colors text-xs uppercase font-bold tracking-widest" href="#">Privacy</a>
+<a class="text-slate-500 hover:text-white transition-colors text-xs uppercase font-bold tracking-widest" href="#">Legal</a>
+</div>
+</div>
+</footer>
+</body></html>
