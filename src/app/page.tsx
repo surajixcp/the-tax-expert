@@ -343,7 +343,7 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.9, x: 50 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full lg:w-[45%] hidden lg:flex items-center justify-center relative z-20 pb-16 lg:pb-0"
+            className="w-full lg:w-[45%] flex items-center justify-center relative z-20 pb-16 lg:pb-0"
           >
             <motion.div 
               animate={{ y: [-15, 15, -15] }}
@@ -355,7 +355,7 @@ export default function Home() {
               <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-slate-950/90 to-transparent z-10"></div>
               
               <Image 
-                src="/rd.png" 
+                src="/Gemini_Generated_Image_xtz991xtz991xtz9.png" 
                 alt="Principal Consultant" 
                 fill
                 style={{ objectFit: 'cover' }}
@@ -468,7 +468,7 @@ export default function Home() {
               <div className="bg-white p-6 md:p-10 rounded-[40px] shadow-2xl relative z-10 border border-slate-100/50 hover:shadow-3xl transition-shadow duration-500">
                 <div className="flex items-center gap-5 md:gap-6 mb-8">
                   <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-4 border-secondary/20 flex-shrink-0 relative group">
-                    <img alt="Mohd. Rahamtulla" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="/rd.png"/>
+                    <img alt="Mohd. Rahamtulla" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="/Gemini_Generated_Image_xtz991xtz991xtz9.png"/>
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold text-primary">CA Mohd. Rahamtulla</h3>
