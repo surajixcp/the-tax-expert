@@ -2,7 +2,7 @@
 
 import { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const fadeUp = {
   initial: { opacity: 0, y: 40 },
@@ -36,43 +36,63 @@ const servicesList = [
     title: "GST Registration",
     icon: "account_balance",
     image: "/services/gst.png",
-    desc: "End-to-end support for Proprietorship, LLP, Pvt Ltd, OPC, and Partnership firms.",
-    points: ["Fast Filing", "Legal Compliance"]
+    desc: "End-to-end GST support across various entity types to keep you compliant step by step.",
+    points: [
+      "Sole Proprietorship",
+      "Limited Liability Partnership (LLP)",
+      "Private Limited Company",
+      "(OPC) Private Limited Company",
+      "Partnership Firm",
+    ]
   },
   {
-    title: "Company Registration",
+    title: "Company Registration (MCA)",
     icon: "corporate_fare",
     image: "/services/company.png",
-    desc: "Incorporate your dream with Pvt Ltd, OPC, or LLP registration handled by experts.",
-    points: ["Document Drafting", "PAN & TAN Inclusion"]
+    desc: "Incorporate your dream business on MCA seamlessly handled by leading tax experts.",
+    points: [
+      "Private Limited Company",
+      "(OPC) Private Limited Company",
+      "Limited Liability Partnership Firm",
+    ]
   },
   {
-    title: "Licenses & Certs",
+    title: "Certificate Issue",
     icon: "verified",
     image: "/services/license.png",
-    desc: "Udyam, FSSAI, IEC, Trademark, Hallmark, Shop Act, and more to power your brand.",
-    points: ["Brand Protection", "Operational Ready"]
+    desc: "Secure essential licenses and operational certifications to power your brand.",
+    points: [
+      "Udyam Registration",
+      "FSSAI License",
+      "IEC Registration",
+      "Trademark",
+      "Hallmark",
+      "Shop Act License"
+    ]
   },
   {
     title: "Income Tax (ITR)",
     icon: "request_quote",
     image: "/services/itr.png",
     desc: "Expert preparation and filing of income tax returns for individuals and corporates.",
-    points: ["Maximized Deductions", "Penalty-Free Filing"]
+    points: [
+      "Salaried Individuals",
+      "Business & Profession",
+      "Corporate Tax Filing",
+      "Penalty-Free Filing"
+    ]
   },
   {
     title: "Accounting & Bookkeeping",
     icon: "receipt_long",
     image: "/services/accounting.png",
     desc: "Comprehensive accounting services to keep your financial records accurate and compliant.",
-    points: ["Ledger Maintenance", "Financial Reporting"]
-  },
-  {
-    title: "Trademark & Patents",
-    icon: "copyright",
-    image: "/services/trademark.png",
-    desc: "Secure your business identity with trademark registration and patent filing services.",
-    points: ["IP Consultation", "Application Tracking"]
+    points: [
+      "Ledger Maintenance",
+      "Financial Reporting",
+      "Payroll Management",
+      "Audit Support"
+    ]
   }
 ];
 
@@ -105,6 +125,7 @@ const testimonials = [
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [expandedService, setExpandedService] = useState<number | null>(null);
 
   return (
     <>
@@ -387,10 +408,15 @@ export default function Home() {
             <div className="w-20 h-1.5 bg-secondary mx-auto rounded-full"></div>
           </motion.div>
           
-          <motion.div {...staggerContainer} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <motion.div {...staggerContainer} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
             {servicesList.map((service, idx) => (
-              <motion.div key={idx} {...fadeItem} className="group bg-surface-container-lowest rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100/50 hover:-translate-y-3 cursor-default flex flex-col h-full overflow-hidden">
-                <div className="w-full h-52 relative overflow-hidden bg-slate-900 border-b border-white/10 group-hover:border-secondary transition-colors duration-500">
+              <motion.div 
+                key={idx} 
+                {...fadeItem} 
+                onClick={() => setExpandedService(expandedService === idx ? null : idx)}
+                className={`group bg-surface-container-lowest rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 border ${expandedService === idx ? 'border-secondary/50 shadow-2xl -translate-y-3' : 'border-slate-100/50 hover:-translate-y-3'} cursor-pointer flex flex-col h-full overflow-hidden`}
+              >
+                <div className="w-full h-52 relative overflow-hidden bg-slate-900 border-b border-white/10 group-hover:border-secondary transition-colors duration-500 shrink-0">
                   <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 group-hover:opacity-100 opacity-80 transition-all duration-700 mix-blend-lighten" />
                   <div className="absolute -bottom-6 right-6 w-14 h-14 bg-primary text-white rounded-2xl flex items-center justify-center mb-8 border-4 border-white shadow-lg group-hover:bg-secondary group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-300 z-10">
                     <span className="material-symbols-outlined text-2xl" data-icon={service.icon}>{service.icon}</span>
@@ -398,14 +424,32 @@ export default function Home() {
                 </div>
                 <div className="px-8 pb-8 flex-grow flex flex-col pt-6 relative">
                   <h3 className="text-2xl font-bold text-primary mb-4 group-hover:text-secondary transition-colors pr-10">{service.title}</h3>
-                  <p className="text-on-surface-variant mb-6 leading-relaxed flex-grow">{service.desc}</p>
-                  <ul className="space-y-3">
-                    {service.points.map((point, pIdx) => (
-                      <li key={pIdx} className="flex items-center gap-3 text-sm font-semibold text-slate-600">
-                        <span className="material-symbols-outlined text-secondary text-lg bg-secondary/10 rounded-full p-1 border border-secondary/20" data-icon="check">check</span> {point}
-                      </li>
-                    ))}
-                  </ul>
+                  <p className="text-on-surface-variant mb-4 leading-relaxed">{service.desc}</p>
+                  
+                  <div className="flex items-center gap-2 text-secondary font-bold text-sm group-hover:underline mt-auto">
+                    {expandedService === idx ? "Hide Categories" : "View Categories"}
+                    <span className="material-symbols-outlined text-lg">{expandedService === idx ? "expand_less" : "expand_more"}</span>
+                  </div>
+
+                  <AnimatePresence>
+                    {expandedService === idx && (
+                      <motion.div 
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="overflow-hidden"
+                      >
+                        <ul className="space-y-3 pt-6 border-t border-slate-100 mt-4">
+                          {service.points.map((point, pIdx) => (
+                            <li key={pIdx} className="flex items-center gap-3 text-sm font-semibold text-slate-700">
+                              <span className="material-symbols-outlined text-secondary text-lg bg-secondary/10 rounded-full p-1 border border-secondary/20" data-icon="check">check</span> {point}
+                            </li>
+                          ))}
+                        </ul>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               </motion.div>
             ))}
