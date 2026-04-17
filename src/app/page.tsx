@@ -425,7 +425,7 @@ export default function Home() {
                     <img alt="Mohd. Rahamtulla" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="/rd.png"/>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-primary">Mohd. Rahamtulla <span className="text-sm font-medium text-slate-500 block md:inline md:ml-1">(B.Com)</span></h3>
+                    <h3 className="text-2xl font-bold text-primary">CA Mohd. Rahamtulla</h3>
                     <p className="text-secondary font-bold">Principal Consultant</p>
                   </div>
                 </div>
