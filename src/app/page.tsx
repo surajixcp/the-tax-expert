@@ -404,8 +404,8 @@ export default function Home() {
 
         <div className="max-w-7xl mx-auto relative z-10">
           <motion.div {...fadeUp} className="mb-16 md:mb-20 text-center">
-            <h2 className="text-4xl md:text-5xl font-black text-primary mb-4 tracking-tighter">Strategic Tax Services</h2>
-            <div className="w-20 h-1.5 bg-secondary mx-auto rounded-full"></div>
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tighter drop-shadow-md">Strategic Tax Services</h2>
+            <div className="w-20 h-1.5 bg-secondary mx-auto rounded-full shadow-[0_0_15px_rgba(183,16,42,0.5)]"></div>
           </motion.div>
           
           <motion.div {...staggerContainer} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
@@ -414,21 +414,22 @@ export default function Home() {
                 key={idx} 
                 {...fadeItem} 
                 onClick={() => setExpandedService(expandedService === idx ? null : idx)}
-                className={`group bg-surface-container-lowest rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 border ${expandedService === idx ? 'border-secondary/50 shadow-2xl -translate-y-3' : 'border-slate-100/50 hover:-translate-y-3'} cursor-pointer flex flex-col h-full overflow-hidden`}
+                className={`group bg-slate-900/60 backdrop-blur-xl rounded-[32px] shadow-[0_8px_32px_rgba(0,0,0,0.4)] hover:shadow-[0_16px_64px_rgba(183,16,42,0.15)] transition-all duration-500 border ${expandedService === idx ? 'border-secondary/50 shadow-[0_0_30px_rgba(183,16,42,0.2)] -translate-y-3' : 'border-white/5 hover:border-white/20 hover:-translate-y-3'} cursor-pointer flex flex-col h-full overflow-hidden`}
               >
-                <div className="w-full h-52 relative overflow-hidden bg-slate-900 border-b border-white/10 group-hover:border-secondary transition-colors duration-500 shrink-0">
-                  <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 group-hover:opacity-100 opacity-80 transition-all duration-700 mix-blend-lighten" />
-                  <div className="absolute -bottom-6 right-6 w-14 h-14 bg-primary text-white rounded-2xl flex items-center justify-center mb-8 border-4 border-white shadow-lg group-hover:bg-secondary group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-300 z-10">
+                <div className="w-full h-52 relative overflow-hidden bg-slate-800 border-b border-white/5 group-hover:border-secondary/50 transition-colors duration-500 shrink-0">
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent z-10"></div>
+                  <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 opacity-70 group-hover:opacity-100 transition-all duration-700 mix-blend-screen" />
+                  <div className="absolute -bottom-6 right-6 w-14 h-14 bg-slate-950 text-white rounded-2xl flex items-center justify-center mb-8 border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.8)] group-hover:bg-secondary group-hover:border-secondary/50 group-hover:scale-110 group-hover:-translate-y-2 transition-all duration-300 z-20">
                     <span className="material-symbols-outlined text-2xl" data-icon={service.icon}>{service.icon}</span>
                   </div>
                 </div>
-                <div className="px-8 pb-8 flex-grow flex flex-col pt-6 relative">
-                  <h3 className="text-2xl font-bold text-primary mb-4 group-hover:text-secondary transition-colors pr-10">{service.title}</h3>
-                  <p className="text-on-surface-variant mb-4 leading-relaxed">{service.desc}</p>
+                <div className="px-8 pb-8 flex-grow flex flex-col pt-8 relative z-10">
+                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-secondary transition-colors pr-10">{service.title}</h3>
+                  <p className="text-slate-300 mb-6 leading-relaxed text-sm lg:text-base font-medium">{service.desc}</p>
                   
-                  <div className="flex items-center gap-2 text-secondary font-bold text-sm group-hover:underline mt-auto">
-                    {expandedService === idx ? "Hide Categories" : "View Categories"}
-                    <span className="material-symbols-outlined text-lg">{expandedService === idx ? "expand_less" : "expand_more"}</span>
+                  <div className="flex items-center gap-2 text-yellow-500 opacity-90 group-hover:opacity-100 font-bold text-xs uppercase tracking-widest mt-auto transition-all group-hover:gap-3">
+                    {expandedService === idx ? "Hide Categories" : "Explore Categories"}
+                    <span className="material-symbols-outlined text-sm">{expandedService === idx ? "remove" : "add"}</span>
                   </div>
 
                   <AnimatePresence>
@@ -437,13 +438,14 @@ export default function Home() {
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: 'auto', opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3 }}
+                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                         className="overflow-hidden"
                       >
-                        <ul className="space-y-3 pt-6 border-t border-slate-100 mt-4">
+                        <ul className="space-y-4 pt-6 border-t border-white/10 mt-6">
                           {service.points.map((point, pIdx) => (
-                            <li key={pIdx} className="flex items-center gap-3 text-sm font-semibold text-slate-700">
-                              <span className="material-symbols-outlined text-secondary text-lg bg-secondary/10 rounded-full p-1 border border-secondary/20" data-icon="check">check</span> {point}
+                            <li key={pIdx} className="flex items-start gap-4 text-sm md:text-base font-semibold text-slate-200">
+                              <span className="material-symbols-outlined text-yellow-400 text-[14px] bg-yellow-400/10 rounded-full p-1 border border-yellow-400/20 shadow-[0_0_15px_rgba(234,179,8,0.2)] mt-0.5" data-icon="arrow_forward">arrow_forward</span> 
+                              <span>{point}</span>
                             </li>
                           ))}
                         </ul>
