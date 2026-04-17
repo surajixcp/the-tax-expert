@@ -104,6 +104,7 @@ const testimonials = [
 ];
 
 export default function Home() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <>
@@ -174,11 +175,69 @@ export default function Home() {
             </a>
             
             {/* Mobile menu button */}
-            <button className="md:hidden text-white w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
+            <button 
+              onClick={() => setIsMobileMenuOpen(true)}
+              className="md:hidden text-white w-10 h-10 rounded-full bg-white/10 flex items-center justify-center pointer-events-auto"
+            >
               <span className="material-symbols-outlined">menu</span>
             </button>
           </div>
         </motion.nav>
+      </div>
+
+      {/* Mobile Sidebar */}
+      <div className="md:hidden">
+        {/* Backdrop */}
+        <div 
+          className={`fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-[60] transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+        
+        {/* Sidebar */}
+        <div className={`fixed top-0 right-0 h-full w-[80%] sm:w-[350px] bg-slate-950/95 backdrop-blur-xl border-l border-white/10 z-[70] p-6 flex flex-col transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-[100%]'} overflow-y-auto`}>
+          <div className="flex justify-between items-center mb-12 mt-2">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-secondary to-red-800 flex items-center justify-center text-white font-black shadow-lg shadow-secondary/30">
+                T
+              </div>
+              <div className="text-xl font-black tracking-tighter text-white uppercase font-['Manrope'] flex items-center gap-1">
+                The TAX <span className="text-secondary opacity-90">expertt</span>
+              </div>
+            </div>
+            <button 
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-white w-10 h-10 rounded-full bg-white/10 flex items-center justify-center transition-transform active:scale-95"
+            >
+              <span className="material-symbols-outlined">close</span>
+            </button>
+          </div>
+          
+          <div className="flex flex-col gap-6 mt-4">
+            <a onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold text-white border-b border-white/5 pb-4 flex justify-between items-center group" href="/#home">
+              <span>Home</span>
+              <span className="material-symbols-outlined text-slate-500 group-hover:text-white transition-colors">chevron_right</span>
+            </a>
+            <a onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold text-slate-300 hover:text-white border-b border-white/5 pb-4 flex justify-between items-center group transition-colors" href="/#services">
+              <span>Services</span>
+              <span className="material-symbols-outlined text-slate-500 group-hover:text-white transition-colors">chevron_right</span>
+            </a>
+            <a onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold text-slate-300 hover:text-white border-b border-white/5 pb-4 flex justify-between items-center group transition-colors" href="/#about">
+              <span>About</span>
+              <span className="material-symbols-outlined text-slate-500 group-hover:text-white transition-colors">chevron_right</span>
+            </a>
+            <a onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold text-slate-300 hover:text-white border-b border-white/5 pb-4 flex justify-between items-center group transition-colors" href="/testimonials">
+              <span>Testimonials</span>
+              <span className="material-symbols-outlined text-slate-500 group-hover:text-white transition-colors">chevron_right</span>
+            </a>
+          </div>
+          
+          <div className="mt-auto pt-8 pb-4">
+            <a onClick={() => setIsMobileMenuOpen(false)} href="/#contact" className="flex items-center justify-center gap-2 bg-white text-slate-950 px-6 py-4 rounded-full font-bold transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.15)] w-full">
+              <span>Consultation</span>
+              <span className="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+          </div>
+        </div>
       </div>
 
       {/* Hero Section */}
