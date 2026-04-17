@@ -241,139 +241,147 @@ export default function Home() {
       </div>
 
       {/* Hero Section */}
-      <section className="bg-slate-950 pt-40 md:pt-52 pb-24 md:pb-32 px-6 md:px-8 overflow-hidden relative min-h-screen flex items-center" id="home">
-        {/* Animated Background Mesh Gradients */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <motion.div 
-            animate={{ 
-              scale: [1, 1.2, 1],
-              x: [0, 50, 0],
-              y: [0, 30, 0]
-            }}
-            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-            className="absolute -top-40 -right-10 w-[300px] h-[300px] md:-right-20 md:w-[600px] md:h-[600px] rounded-full bg-secondary/10 blur-[80px] md:blur-[120px] mix-blend-screen"
-          ></motion.div>
-          <motion.div 
-            animate={{ 
-              scale: [1, 1.5, 1],
-              x: [0, -50, 0],
-              y: [0, 50, 0]
-            }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="absolute top-40 -left-10 w-[250px] h-[250px] md:-left-20 md:w-[500px] md:h-[500px] rounded-full bg-blue-600/10 blur-[80px] md:blur-[120px] mix-blend-screen"
-          ></motion.div>
-          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
+      <section className="pt-40 md:pt-52 pb-32 md:pb-40 px-6 md:px-8 overflow-hidden relative min-h-screen flex items-center" id="home">
+        {/* Background Image Setup */}
+        <div className="absolute inset-0 pointer-events-none">
+          <Image 
+            src="/new-hero-bg.png" 
+            alt="Hero Corporate Background" 
+            fill 
+            style={{ objectFit: 'cover', objectPosition: 'center' }}
+            quality={100}
+            priority
+            className="opacity-90"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/40 via-slate-950/20 to-slate-950"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/60 to-transparent"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-20 relative z-10 w-full">
-          <motion.div {...fadeUp} className="flex-1 text-left pt-10 md:pt-0">
-            <div className="inline-flex items-center gap-3 px-4 py-2 bg-white/5 border border-white/10 rounded-full mb-8 backdrop-blur-md shadow-2xl">
-              <div className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-secondary"></span>
-              </div>
-              <span className="text-white/90 text-xs font-bold tracking-widest uppercase">Trusted India-Wide Advisory</span>
-            </div>
-            <h1 className="text-6xl sm:text-7xl lg:text-8xl font-black text-white leading-[1.05] mb-8 tracking-tighter">
-              Expert Tax &amp; <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-red-400 drop-shadow-lg">
-                Business Growth
-              </span>
-            </h1>
-            <p className="text-slate-300 text-lg sm:text-xl max-w-xl mb-12 leading-relaxed font-body">
-              Where professional services are <span className="text-white font-bold">affordable</span>! 
-              Unlock seamless growth with high-precision <span className="text-white font-bold">accounts & taxation</span> compliance designed for the modern entrepreneur.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-5">
-              <a href="#contact" className="group flex items-center justify-center gap-3 bg-secondary text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-secondary-container hover:scale-105 active:scale-95 transition-all shadow-[0_10px_30px_rgba(183,16,42,0.4)] hover:shadow-[0_15px_40px_rgba(183,16,42,0.6)]">
-                <span>Start Consulting</span>
-                <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
-              </a>
-              <a href="#services" className="group flex items-center justify-center gap-3 bg-white/5 text-white border border-white/10 backdrop-blur-md px-8 py-4 rounded-full font-bold text-lg hover:bg-white/10 hover:border-white/20 hover:scale-105 active:scale-95 transition-all">
-                <span>Explore Services</span>
-              </a>
-            </div>
-            
-            {/* Trust Badges - Improved */}
-            <div className="mt-16 sm:mt-20 flex flex-wrap items-center gap-8 md:gap-12 p-6 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-md inline-flex">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center border border-secondary/30">
-                  <span className="material-symbols-outlined text-secondary">groups</span>
-                </div>
-                <div>
-                  <div className="text-2xl font-black text-white">500+</div>
-                  <div className="text-xs text-slate-400 uppercase tracking-widest font-bold">Clients</div>
-                </div>
-              </div>
-              <div className="w-px h-12 bg-white/10 hidden sm:block"></div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center border border-blue-500/30">
-                  <span className="material-symbols-outlined text-blue-400">workspace_premium</span>
-                </div>
-                <div>
-                  <div className="text-2xl font-black text-white">5+</div>
-                  <div className="text-xs text-slate-400 uppercase tracking-widest font-bold">Years Exp.</div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-          
+        {/* Content Frame inspired by reference */}
+        <div className="max-w-7xl mx-auto w-full flex flex-col lg:flex-row items-center gap-12 lg:gap-16 relative z-10 pt-10 pb-8">
           <motion.div 
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="flex-1 relative w-full lg:h-[600px] flex items-center justify-center mt-12 lg:mt-0"
+            {...fadeUp} 
+            className="w-full lg:w-[55%] relative"
           >
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent z-10 lg:hidden"></div>
+            {/* Glowing Border Box Container */}
+            <div className="bg-slate-900/60 backdrop-blur-lg border border-yellow-500/50 rounded-br-[40px] rounded-tl-[40px] p-8 sm:p-12 shadow-[0_0_30px_rgba(234,179,8,0.15)] relative overflow-hidden">
+              {/* Decorative Corner Glows */}
+              <div className="absolute top-0 left-0 w-32 h-32 bg-yellow-400/20 blur-[50px] pointer-events-none"></div>
+              <div className="absolute bottom-0 right-0 w-32 h-32 bg-yellow-400/20 blur-[50px] pointer-events-none"></div>
+              
+              {/* Highlight Lines */}
+              <div className="absolute top-0 left-0 w-1/3 h-[2px] bg-gradient-to-r from-yellow-300 to-transparent"></div>
+              <div className="absolute top-0 left-0 h-1/3 w-[2px] bg-gradient-to-b from-yellow-300 to-transparent"></div>
+              <div className="absolute bottom-0 right-0 w-1/3 h-[2px] bg-gradient-to-l from-yellow-300 to-transparent"></div>
+              
+              <div className="inline-flex items-center gap-3 px-4 py-2 bg-white/10 border border-white/20 rounded-full mb-8 backdrop-blur-md">
+                <div className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-yellow-500"></span>
+                </div>
+                <span className="text-white/90 text-xs font-bold tracking-widest uppercase text-yellow-50">Trusted India-Wide Advisory</span>
+              </div>
+              
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.1] mb-6 tracking-tighter uppercase drop-shadow-xl">
+                Expert Tax &amp; <br/>
+                Business Growth
+              </h1>
+              
+              <p className="text-slate-200 text-lg sm:text-xl mb-12 leading-relaxed font-medium">
+                Where professional services are <span className="text-yellow-400 font-bold">affordable</span>! 
+                Unlock seamless growth with high-precision <span className="text-white font-bold">accounts & taxation</span> compliance designed for the modern entrepreneur.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-5 items-center relative z-20">
+                <a href="#contact" className="group flex items-center justify-center gap-3 bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-500 hover:scale-105 active:scale-95 transition-all shadow-[0_10px_30px_rgba(37,99,235,0.4)] hover:shadow-[0_15px_40px_rgba(37,99,235,0.6)] w-full sm:w-auto">
+                  <span>Start Consulting</span>
+                  <span className="material-symbols-outlined text-sm bg-white/20 rounded-full p-1 group-hover:translate-x-1 transition-transform">arrow_forward_ios</span>
+                </a>
+                <a href="#services" className="group flex items-center justify-center gap-3 bg-white text-slate-900 border border-white px-8 py-4 rounded-full font-bold text-lg hover:bg-slate-100 hover:scale-105 active:scale-95 transition-all shadow-xl w-full sm:w-auto">
+                  <span>Explore Services</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Trust Badges - Moved out of the glowing box to the bottom area */}
+            <div className="mt-12 flex flex-wrap items-center gap-8 md:gap-12 px-6 relative z-30 pb-16">
+              <div className="flex items-center gap-4">
+                <div className="text-4xl font-black text-white drop-shadow-md">500+</div>
+                <div className="text-xs text-yellow-400 uppercase tracking-widest font-bold leading-relaxed whitespace-nowrap">Satisfied<br/>Clients</div>
+              </div>
+              <div className="w-px h-10 bg-white/20 hidden sm:block"></div>
+              <div className="flex items-center gap-4">
+                <div className="text-4xl font-black text-white drop-shadow-md">5+</div>
+                <div className="text-xs text-yellow-400 uppercase tracking-widest font-bold leading-relaxed whitespace-nowrap">Years Of<br/>Experience</div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* User Image Frame */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9, x: 50 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full lg:w-[45%] hidden lg:flex items-center justify-center relative z-20 pb-16 lg:pb-0"
+          >
+            <motion.div 
+              animate={{ y: [-15, 15, -15] }}
+              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+              className="relative z-0 rounded-bl-[50px] rounded-tr-[50px] overflow-hidden border-[2px] border-yellow-500/50 shadow-[0_30px_60px_rgba(0,0,0,0.8),0_0_40px_rgba(234,179,8,0.25)] w-full max-w-[380px] aspect-[4/5] bg-slate-900"
+            >
+              {/* Internal Glows */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-yellow-500/10 via-transparent to-blue-500/10 z-10 mix-blend-screen pointer-events-none"></div>
+              <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-slate-950/90 to-transparent z-10"></div>
+              
+              <Image 
+                src="/rd.png" 
+                alt="Principal Consultant" 
+                fill
+                style={{ objectFit: 'cover' }}
+                className="hover:scale-105 transition-transform duration-700" 
+              />
+            </motion.div>
             
-            {/* Main Floating Image */}
+            {/* Floating Element beside image */}
             <motion.div 
-              animate={{ y: [-10, 10, -10] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="relative z-0 rounded-[40px] overflow-hidden border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.4)] w-full max-w-[450px] mx-auto aspect-[4/5] sm:aspect-auto"
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 1.2, ease: "easeOut" }}
+              className="absolute -left-4 sm:-left-8 top-1/4 bg-slate-900/80 backdrop-blur-md border border-white/10 p-3 sm:p-4 rounded-xl shadow-2xl flex items-center gap-3 z-30"
             >
-              <div className="absolute inset-0 bg-secondary/10 mix-blend-overlay z-10 transition-opacity hover:opacity-0 duration-500"></div>
-              <img alt="Professional Consultant" className="w-full h-full object-cover rounded-[40px] grayscale-[10%] hover:grayscale-0 transition-all duration-700" src="/rd.png"/>
-            </motion.div>
-
-            {/* Floating Card 1 */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.8, x: -50 }}
-              animate={{ opacity: 1, scale: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
-              className="absolute -top-5 sm:top-[10%] left-0 sm:-left-[5%] md:-left-[20%] lg:-left-[10%] bg-slate-900/80 backdrop-blur-xl border border-white/20 p-2.5 sm:p-4 rounded-xl sm:rounded-2xl shadow-2xl flex items-center gap-3 sm:gap-4 z-20"
-            >
-              <div className="bg-green-500/20 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center border border-green-500/30">
-                <span className="material-symbols-outlined text-green-400 text-xl sm:text-2xl">check_circle</span>
+              <div className="bg-yellow-500/20 w-10 h-10 rounded-full flex items-center justify-center border border-yellow-500/30">
+                <span className="material-symbols-outlined text-yellow-400">verified_user</span>
               </div>
-              <div>
-                <div className="font-bold text-white text-xs sm:text-sm">100% Compliant</div>
-                <div className="text-slate-400 text-[10px] sm:text-xs">Zero Filing Errors</div>
-              </div>
-            </motion.div>
-
-            {/* Floating Card 2 */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.8, x: 50 }}
-              animate={{ opacity: 1, scale: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 1, ease: "easeOut" }}
-              className="absolute -bottom-5 sm:bottom-[20%] right-0 sm:-right-[5%] md:-right-[10%] lg:-right-[5%] bg-slate-900/80 backdrop-blur-xl border border-white/20 p-2.5 sm:p-4 rounded-xl sm:rounded-2xl shadow-2xl flex items-center gap-3 sm:gap-4 z-20"
-            >
-               <div className="bg-secondary/20 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center border border-secondary/30">
-                <span className="material-symbols-outlined text-secondary text-xl sm:text-2xl">trending_up</span>
-              </div>
-              <div>
-                <div className="font-bold text-white text-xs sm:text-sm">Fast Turnaround</div>
-                <div className="text-slate-400 text-[10px] sm:text-xs">24-48 Hours Avg.</div>
+              <div className="hidden sm:block">
+                 <div className="font-bold text-white text-sm">Expert Advisory</div>
+                <div className="text-yellow-400 text-xs tracking-widest font-bold">100% SECURE</div>
               </div>
             </motion.div>
           </motion.div>
+        </div>
+        {/* Bottom Curved Separator reminiscent of reference */}
+        <div className="absolute bottom-0 left-0 w-full h-16 md:h-24 overflow-hidden pointer-events-none z-10 flex">
+          <div className="w-1/2 h-full bg-surface border-t-2 border-yellow-500 rounded-tr-[100px] shadow-[0_-10px_20px_rgba(234,179,8,0.2)]"></div>
+          <div className="w-1/2 h-full bg-surface border-t-2 border-yellow-500 rounded-tl-[100px] shadow-[0_-10px_20px_rgba(234,179,8,0.2)]"></div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section className="py-24 md:py-32 px-6 md:px-8 bg-surface overflow-hidden" id="services">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-24 md:py-32 px-6 md:px-8 relative overflow-hidden" id="services">
+        {/* Background Setup */}
+        <div className="absolute inset-0 pointer-events-none">
+          <Image 
+            src="/abstract-bg.png" 
+            alt="Strategic Abstract Background" 
+            fill 
+            style={{ objectFit: 'cover', objectPosition: 'center' }}
+            quality={90}
+            className="opacity-20 mix-blend-lighten"
+          />
+          <div className="absolute inset-0 bg-slate-950/90"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
           <motion.div {...fadeUp} className="mb-16 md:mb-20 text-center">
             <h2 className="text-4xl md:text-5xl font-black text-primary mb-4 tracking-tighter">Strategic Tax Services</h2>
             <div className="w-20 h-1.5 bg-secondary mx-auto rounded-full"></div>
