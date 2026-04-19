@@ -27,8 +27,8 @@ export default function Preloader() {
         >
           {/* Animated Background Mesh Gradients to match Hero */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-50">
-            <motion.div 
-              animate={{ 
+            <motion.div
+              animate={{
                 scale: [1, 1.2, 1],
                 x: [0, 20, 0],
                 y: [0, 15, 0]
@@ -36,8 +36,8 @@ export default function Preloader() {
               transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
               className="absolute -top-40 -right-10 w-[300px] h-[300px] rounded-full bg-secondary/20 blur-[80px] mix-blend-screen"
             ></motion.div>
-            <motion.div 
-              animate={{ 
+            <motion.div
+              animate={{
                 scale: [1, 1.5, 1],
                 x: [0, -20, 0],
                 y: [0, 25, 0]
@@ -79,15 +79,15 @@ export default function Preloader() {
             >
               The TAX <span className="text-secondary drop-shadow-[0_0_8px_rgba(183,16,42,0.5)]">expertt</span>
             </motion.div>
-            
+
             {/* Loading Bar */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.5 }}
               className="w-48 h-1 bg-white/10 rounded-full overflow-hidden"
             >
-              <motion.div 
+              <motion.div
                 initial={{ x: "-100%" }}
                 animate={{ x: "0%" }}
                 transition={{ duration: 1.5, ease: "easeInOut" }}

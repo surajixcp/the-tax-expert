@@ -93,6 +93,18 @@ const servicesList = [
       "Payroll Management",
       "Audit Support"
     ]
+  },
+  {
+    title: "ESI and PF",
+    icon: "health_and_safety",
+    image: "/services/esi-pf.png",
+    desc: "Comprehensive ESI and PF registration and compliance services for your employees' well-being.",
+    points: [
+      "New Registration",
+      "Monthly Return Filing",
+      "Employee Record Management",
+      "Compliance Advisory"
+    ]
   }
 ];
 
@@ -126,6 +138,14 @@ const testimonials = [
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [expandedService, setExpandedService] = useState<number | null>(null);
+  const [hoveredNav, setHoveredNav] = useState<string | null>(null);
+
+  const navItems = [
+    { name: 'Home', href: '/#home', active: true },
+    { name: 'Services', href: '/#services' },
+    { name: 'About', href: '/#about' },
+    { name: 'Testimonials', href: '/testimonials' },
+  ];
 
   return (
     <>
@@ -184,11 +204,30 @@ export default function Home() {
                 The TAX <span className="text-secondary opacity-90 drop-shadow-[0_0_8px_rgba(183,16,42,0.5)]">expertt</span>
               </div>
             </a>
-            <div className="hidden md:flex items-center space-x-1 bg-white/5 rounded-full p-1 border border-white/5 backdrop-blur-md">
-              <a className="px-5 py-2 rounded-full text-white bg-white/10 font-['Manrope'] font-bold text-sm tracking-wide shadow-sm" href="/#home">Home</a>
-              <a className="px-5 py-2 rounded-full text-slate-300 hover:text-white hover:bg-white/5 transition-all font-['Manrope'] font-bold text-sm tracking-wide" href="/#services">Services</a>
-              <a className="px-5 py-2 rounded-full text-slate-300 hover:text-white hover:bg-white/5 transition-all font-['Manrope'] font-bold text-sm tracking-wide" href="/#about">About</a>
-              <a className="px-5 py-2 rounded-full text-slate-300 hover:text-white hover:bg-white/5 transition-all font-['Manrope'] font-bold text-sm tracking-wide" href="/testimonials">Testimonials</a>
+            <div 
+              className="hidden md:flex items-center space-x-1 bg-white/5 rounded-full p-1 border border-white/5 backdrop-blur-md relative"
+              onMouseLeave={() => setHoveredNav(null)}
+            >
+              {navItems.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onMouseEnter={() => setHoveredNav(item.name)}
+                  className={`px-5 py-2 rounded-full font-['Manrope'] font-bold text-sm tracking-wide transition-colors relative z-10 ${item.active ? 'text-white' : 'text-slate-300 hover:text-white'}`}
+                >
+                  {hoveredNav === item.name && (
+                    <motion.div
+                      layoutId="navHover"
+                      className="absolute inset-0 bg-secondary rounded-full -z-10 shadow-[0_0_15px_rgba(183,16,42,0.5)]"
+                      transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
+                    />
+                  )}
+                  {item.active && hoveredNav !== item.name && (
+                    <div className="absolute inset-0 bg-white/10 rounded-full -z-20 shadow-sm" />
+                  )}
+                  {item.name}
+                </a>
+              ))}
             </div>
             <a href="/#contact" className="hidden md:flex items-center gap-2 bg-white text-slate-950 px-6 py-2.5 rounded-full font-bold transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.15)] hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]">
               <span>Consultation</span>
