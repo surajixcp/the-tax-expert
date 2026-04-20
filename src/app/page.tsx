@@ -149,7 +149,9 @@ export default function Home() {
     
     setFormStatus('loading');
     
-    emailjs.sendForm('service_o1owuqp', 'template_pf4i2zp', formRef.current, 'GBUbxTaVo-A7FQCn4')
+    emailjs.sendForm('service_fayb8vg', 'template_pf4i2zp', formRef.current, {
+      publicKey: 'GBUbxTaVo-A7FQCn4',
+    })
       .then((result) => {
           setFormStatus('success');
           formRef.current?.reset();
@@ -330,7 +332,6 @@ export default function Home() {
             alt="Hero Corporate Background"
             fill
             style={{ objectFit: 'cover', objectPosition: 'center' }}
-            quality={100}
             priority
             className="opacity-90"
           />
@@ -418,6 +419,8 @@ export default function Home() {
                 src="/Gemini_Generated_Image_xtz991xtz991xtz9.png"
                 alt="Principal Consultant"
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                priority
                 style={{ objectFit: 'cover' }}
                 className="hover:scale-105 transition-transform duration-700"
               />
@@ -456,7 +459,6 @@ export default function Home() {
             alt="Strategic Abstract Background"
             fill
             style={{ objectFit: 'cover', objectPosition: 'center' }}
-            quality={90}
             className="opacity-20 mix-blend-lighten"
           />
           <div className="absolute inset-0 bg-slate-950/90"></div>
