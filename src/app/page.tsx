@@ -3,6 +3,7 @@
 import { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 
 const fadeUp = {
   initial: { opacity: 0, y: 40 },
@@ -139,6 +140,26 @@ export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [expandedService, setExpandedService] = useState<number | null>(null);
   const [hoveredNav, setHoveredNav] = useState<string | null>(null);
+  const [formStatus, setFormStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!formRef.current) return;
+    
+    setFormStatus('loading');
+    
+    emailjs.sendForm('service_o1owuqp', 'template_pf4i2zp', formRef.current, 'GBUbxTaVo-A7FQCn4')
+      .then((result) => {
+          setFormStatus('success');
+          formRef.current?.reset();
+          setTimeout(() => setFormStatus('idle'), 5000);
+      }, (error) => {
+          console.error(error.text);
+          setFormStatus('error');
+          setTimeout(() => setFormStatus('idle'), 5000);
+      });
+  };
 
   const navItems = [
     { name: 'Home', href: '/#home', active: true },
@@ -646,21 +667,21 @@ export default function Home() {
             <motion.div {...fadeUp} className="lg:w-3/5 w-full">
               <div className="bg-white p-8 md:p-12 rounded-[40px] shadow-2xl border border-slate-100">
                 <h2 className="text-3xl md:text-4xl font-black text-primary mb-8 tracking-tighter">Book Free Consultation</h2>
-                <form className="space-y-6">
+                <form ref={formRef} onSubmit={sendEmail} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <label className="text-xs font-bold text-slate-500 uppercase tracking-widest px-1">Full Name</label>
-                      <input className="w-full bg-slate-50 border border-slate-100 focus:border-secondary focus:ring-4 focus:ring-secondary/10 rounded-2xl py-4 px-6 text-primary transition-all outline-none" placeholder="e.g. John Doe" type="text" />
+                      <input name="user_name" required className="w-full bg-slate-50 border border-slate-100 focus:border-secondary focus:ring-4 focus:ring-secondary/10 rounded-2xl py-4 px-6 text-primary transition-all outline-none" placeholder="e.g. John Doe" type="text" />
                     </div>
                     <div className="space-y-2">
                       <label className="text-xs font-bold text-slate-500 uppercase tracking-widest px-1">Phone Number</label>
-                      <input className="w-full bg-slate-50 border border-slate-100 focus:border-secondary focus:ring-4 focus:ring-secondary/10 rounded-2xl py-4 px-6 text-primary transition-all outline-none" placeholder="+91 00000 00000" type="tel" />
+                      <input name="user_phone" required className="w-full bg-slate-50 border border-slate-100 focus:border-secondary focus:ring-4 focus:ring-secondary/10 rounded-2xl py-4 px-6 text-primary transition-all outline-none" placeholder="+91 00000 00000" type="tel" />
                     </div>
                   </div>
                   <div className="space-y-2">
                     <label className="text-xs font-bold text-slate-500 uppercase tracking-widest px-1">Service Required</label>
                     <div className="relative">
-                      <select className="w-full bg-slate-50 border border-slate-100 focus:border-secondary focus:ring-4 focus:ring-secondary/10 rounded-2xl py-4 px-6 text-primary transition-all outline-none appearance-none font-medium">
+                      <select name="service_required" className="w-full bg-slate-50 border border-slate-100 focus:border-secondary focus:ring-4 focus:ring-secondary/10 rounded-2xl py-4 px-6 text-primary transition-all outline-none appearance-none font-medium">
                         <option>GST Registration</option>
                         <option>Company Incorporation</option>
                         <option>Trademark Filing</option>
@@ -672,11 +693,21 @@ export default function Home() {
                   </div>
                   <div className="space-y-2">
                     <label className="text-xs font-bold text-slate-500 uppercase tracking-widest px-1">Message</label>
-                    <textarea className="w-full bg-slate-50 border border-slate-100 focus:border-secondary focus:ring-4 focus:ring-secondary/10 rounded-2xl py-4 px-6 text-primary transition-all outline-none resize-none" placeholder="How can we help you?" rows={4}></textarea>
+                    <textarea name="message" required className="w-full bg-slate-50 border border-slate-100 focus:border-secondary focus:ring-4 focus:ring-secondary/10 rounded-2xl py-4 px-6 text-primary transition-all outline-none resize-none" placeholder="How can we help you?" rows={4}></textarea>
                   </div>
-                  <button className="w-full bg-primary text-white font-black py-5 rounded-2xl hover:bg-slate-900 active:scale-[0.98] transition-all duration-300 text-lg shadow-[0_10px_30px_rgba(0,6,21,0.2)] hover:shadow-2xl uppercase tracking-widest mt-4">
-                    Submit Inquiry
+                  <button disabled={formStatus === 'loading'} className="w-full bg-primary text-white font-black py-5 rounded-2xl hover:bg-slate-900 active:scale-[0.98] transition-all duration-300 text-lg shadow-[0_10px_30px_rgba(0,6,21,0.2)] hover:shadow-2xl uppercase tracking-widest mt-4 disabled:opacity-70 disabled:cursor-not-allowed">
+                    {formStatus === 'loading' ? 'Sending...' : 'Submit Inquiry'}
                   </button>
+                  {formStatus === 'success' && (
+                    <div className="p-4 bg-green-50 text-green-700 rounded-xl border border-green-200 text-sm font-bold text-center">
+                      Message sent successfully! We will contact you soon.
+                    </div>
+                  )}
+                  {formStatus === 'error' && (
+                    <div className="p-4 bg-red-50 text-red-700 rounded-xl border border-red-200 text-sm font-bold text-center">
+                      Failed to send message. Please try again later.
+                    </div>
+                  )}
                 </form>
               </div>
             </motion.div>
