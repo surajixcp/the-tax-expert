@@ -684,11 +684,10 @@ export default function Home() {
                     <label className="text-xs font-bold text-slate-500 uppercase tracking-widest px-1">Service Required</label>
                     <div className="relative">
                       <select name="service" className="w-full bg-slate-50 border border-slate-100 focus:border-secondary focus:ring-4 focus:ring-secondary/10 rounded-2xl py-4 px-6 text-primary transition-all outline-none appearance-none font-medium">
-                        <option>GST Registration</option>
-                        <option>Company Incorporation</option>
-                        <option>Trademark Filing</option>
-                        <option>MSME/Udyam Registration</option>
-                        <option>Other Services</option>
+                        {servicesList.map((service, idx) => (
+                          <option key={idx} value={service.title}>{service.title}</option>
+                        ))}
+                        <option value="Other Services">Other Services</option>
                       </select>
                       <span className="material-symbols-outlined absolute right-5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">expand_more</span>
                     </div>
