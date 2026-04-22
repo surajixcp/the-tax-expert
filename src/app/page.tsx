@@ -146,20 +146,20 @@ export default function Home() {
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!formRef.current) return;
-    
+
     setFormStatus('loading');
-    
+
     emailjs.sendForm('service_fayb8vg', 'template_pf4i2zp', formRef.current, {
       publicKey: 'GBUbxTaVo-A7FQCn4',
     })
       .then((result) => {
-          setFormStatus('success');
-          formRef.current?.reset();
-          setTimeout(() => setFormStatus('idle'), 5000);
+        setFormStatus('success');
+        formRef.current?.reset();
+        setTimeout(() => setFormStatus('idle'), 5000);
       }, (error) => {
-          console.error(error.text);
-          setFormStatus('error');
-          setTimeout(() => setFormStatus('idle'), 5000);
+        console.error(error.text);
+        setFormStatus('error');
+        setTimeout(() => setFormStatus('idle'), 5000);
       });
   };
 
@@ -227,7 +227,7 @@ export default function Home() {
                 The TAX <span className="text-secondary opacity-90 drop-shadow-[0_0_8px_rgba(183,16,42,0.5)]">expertt</span>
               </div>
             </a>
-            <div 
+            <div
               className="hidden md:flex items-center space-x-1 bg-white/5 rounded-full p-1 border border-white/5 backdrop-blur-md relative"
               onMouseLeave={() => setHoveredNav(null)}
             >
@@ -533,7 +533,7 @@ export default function Home() {
                     <img alt="Mohd. Rahamtulla" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="/Gemini_Generated_Image_xtz991xtz991xtz9.png" />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-primary">Consultant  Mohd. Rahamtulla</h3>
+                    <h3 className="text-2xl font-bold text-primary">Mohd. Rahamtulla</h3>
                     <p className="text-secondary font-bold">Principal Consultant</p>
                   </div>
                 </div>
@@ -676,7 +676,7 @@ export default function Home() {
                       <input name="name" required className="w-full bg-slate-50 border border-slate-100 focus:border-secondary focus:ring-4 focus:ring-secondary/10 rounded-2xl py-4 px-6 text-primary transition-all outline-none" placeholder="e.g. John Doe" type="text" />
                     </div>
                     <div className="space-y-2">
-                       <label className="text-xs font-bold text-slate-500 uppercase tracking-widest px-1">Phone Number</label>
+                      <label className="text-xs font-bold text-slate-500 uppercase tracking-widest px-1">Phone Number</label>
                       <input name="phone" required className="w-full bg-slate-50 border border-slate-100 focus:border-secondary focus:ring-4 focus:ring-secondary/10 rounded-2xl py-4 px-6 text-primary transition-all outline-none" placeholder="+91 00000 00000" type="tel" />
                     </div>
                   </div>
